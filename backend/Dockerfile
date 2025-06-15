@@ -1,17 +1,17 @@
-# Use official OpenJDK image
+# Use official OpenJDK base image
 FROM openjdk:17-jdk-slim
 
-# Set working directory inside container
+# Set working directory in the container
 WORKDIR /app
 
-# Copy everything from local backend folder into /app
+# Copy ONLY the backend folder contents into the image
 COPY . .
 
-# Build the application
-RUN ./mvnw clean package -DskipTests
+# Give mvnw execute permission and build the app
+RUN chmod +x mvnw && ./mvnw clean package -DskipTests
 
-# Expose port
+# Expose backend port
 EXPOSE 8080
 
-# Run the jar file
+# Run the Spring Boot app
 CMD ["java", "-jar", "target/*.jar"]
