@@ -1,0 +1,18 @@
+# Node.js
+node_modules/
+build/
+dist/
+
+# Java (Spring Boot)
+target/
+*.class
+*.log
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Env and misc
+.env
