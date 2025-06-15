@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Routes, Route, Navigate, useNavigate, Link } from 'react-router-dom';
+import CourseLessonsPage from './pages/student/CourseLessonsPage'; // adjust path as per your project
+import StudentCoursePage from "./pages/StudentCoursePage";
+
 
 // Page components
 import Home from './pages/Home';
@@ -45,6 +48,10 @@ function App() {
         <Route path="/admin/*" element={role === 'ADMIN' ? <Admin /> : <Navigate to="/" />} />
         <Route path="/student/*" element={role === 'STUDENT' ? <StudentRoutes /> : <Navigate to="/" />} />
         <Route path="/practice" element={<PracticePage />} />
+        <Route path="/student/course/:courseId" element={<CourseLessonsPage />} />
+        <Route path="/student/course/:id" element={<StudentCoursePage />} />
+
+
       </Routes>
     </div>
   );
